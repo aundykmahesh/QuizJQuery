@@ -9,13 +9,13 @@
       ]
   },
   "2": {
-    "question":"What year did Albert Einstein die?",
+    "question":"What is the Capital city of India?",
     "answer": "File",
       "options": [
-        {"value": "1954", "sortorder": "1"},
-        {"value": "1949", "sortorder": "2"},
-        {"value": "1960", "sortorder": "3"},
-        {"value": "1955", "sortorder": "4"}
+        {"value": "Delhi", "sortorder": "1"},
+        {"value": "Mumbai", "sortorder": "2"},
+        {"value": "Kolkatta", "sortorder": "3"},
+        {"value": "Chennai", "sortorder": "4"}
       ]
   }
 }
