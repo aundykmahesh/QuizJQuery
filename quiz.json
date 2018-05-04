@@ -1,6 +1,6 @@
 {"1": {
     "question":"What year did Albert Einstein die?",
-    "answer": "File",
+    "answer": "3",
       "options": [
         {"value": "1954", "sortorder": "1"},
         {"value": "1949", "sortorder": "2"},
@@ -10,7 +10,7 @@
   },
   "2": {
     "question":"What is the Capital city of India?",
-    "answer": "File",
+    "answer": "1",
       "options": [
         {"value": "Delhi", "sortorder": "1"},
         {"value": "Mumbai", "sortorder": "2"},
