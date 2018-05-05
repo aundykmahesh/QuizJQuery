@@ -1,0 +1,26 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "1.12.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aundykmahesh/htmlquiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aundykmahesh/htmlquiz/issues"
+  },
+  "homepage": "https://github.com/aundykmahesh/htmlquiz#readme"
+}
