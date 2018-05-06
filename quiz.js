@@ -4,40 +4,42 @@ $(function() {
     $("#btnNext").hide();
   } else {
     var items = [];
-
+    var minutes = 0;
+    var seconds = 60;
     sessionStorage.clear();
-    $.getJSON(
-      "https://raw.githubusercontent.com/aundykmahesh/htmlquiz/master/quiz.json",
-      function(data) {
-        var htmls = "";
-        var questionnumber;
-        $.each(data, function(json, jdata) {
-          htmls += "<h2>" + jdata.question + "</h2>";
-          $.each(jdata.options, function(key, value) {
-            htmls +=
-              "<input type='radio' value='" +
-              value.value +
-              "' name='r_" +
-              json +
-              "' sortorder=" +
-              value.sortorder +
-              ">" +
-              value.value +
-              "<br>";
-          });
-          // alert(htmls);
-          items.push(htmls);
-          sessionStorage.setItem("aans_" + json, jdata.answer);
-          htmls = "";
+    loadJSON(function(response) {
+      var htmls = "";
+      var questionnumber;
+      var data = JSON.parse(response);
+      $.each(data, function(json, jdata) {
+        htmls += "<h2>" + jdata.question + "</h2>";
+        $.each(jdata.options, function(key, value) {
+          htmls +=
+            "<div id=d_" +
+            json +
+            "_" +
+            value.sortorder +
+            ">" +
+            "<input type='radio' value='" +
+            value.value +
+            "' name='r_" +
+            json +
+            "' id=" +
+            value.sortorder +
+            ">" +
+            value.value +
+            "<br></div>";
         });
-        // for (i = 0; i <= sessionStorage.length; i++) {
-        //   if (sessionStorage.key(i) == "aans_" + i) {
-        //     alert(sessionStorage.getItem("aans_" + i));
-        //   }
-        // }
-        DisplayQuiz(0);
-      }
-    );
+        items.push(htmls);
+        sessionStorage.setItem("aans_" + json, jdata.answer);
+        htmls = "";
+      });
+      DisplayQuiz(0);
+    });
+
+    $("input[type=radio]").change(function() {
+      alert(this.id);
+    });
 
     $("#btnNext").click(function() {
       if (!ValidateAnswerSelection()) return false;
@@ -45,7 +47,7 @@ $(function() {
 
       sessionStorage.setItem(
         "oans_" + questionnumber,
-        $("input[name=r_" + questionnumber + "]:checked").attr("sortorder")
+        $("input[name=r_" + questionnumber + "]:checked").attr("id")
       );
       if (nextquestion == items.length) {
         DisplayResults();
@@ -55,8 +57,7 @@ $(function() {
     });
 
     function DisplayQuiz(questionnumber) {
-      var q = parseInt(questionnumber) + 1;
-      $("#phquestionnumber").html("Question " + q);
+      $("#phquestionnumber").html("Question " + (questionnumber + 1));
       $("#placeholder").html(items[questionnumber]);
       $("#hQuestionNumber").val(questionnumber);
 
@@ -66,21 +67,43 @@ $(function() {
     }
 
     function DisplayResults() {
-      var resulthtmls = "";
       $("#placeholder").empty();
-      for (i = 0; i <= sessionStorage.length; i++) {
-        if (sessionStorage.key(i) == "aans_" + (i + 1)) {
-          resulthtmls += items[i];
-          $("#placeholder").append(items[i]);
+      clearInterval(t);
+
+      var correctanswercount = 0;
+      for (i = 0; i <= items.length - 1; i++) {
+        $("#placeholder").append(items[i]);
+        if (sessionStorage.getItem("oans_" + (i + 1))) {
           $(
             "input[name=r_" +
               (i + 1) +
               "]:eq(" +
               (sessionStorage.getItem("oans_" + (i + 1)) - 1) +
               ")"
-          ).attr("checked", "checked");
+          ).attr({ checked: "checked", disabled: "disabled" });
+          //mark css for correct answer
+          $("#d_" + (i + 1) + "_" + sessionStorage.getItem("aans_" + (i + 1)))
+            .addClass("correctanswer")
+            .append("correct Answer");
+          //mark css for wrong answer
+          $("#d_" + (i + 1) + "_" + sessionStorage.getItem("oans_" + (i + 1)))
+            .not(".correctanswer")
+            .addClass("wronganswer")
+            .append("Wrong Answer");
+        } else {
+          $("div[id ^= 'd_" + (i + 1) + "_']").addClass("notanswered");
+        }
+        //mark css for not answer
+        $("input[type=radio]").attr("disabled", "disabled");
+        if (
+          sessionStorage.getItem("aans_" + (i + 1)) ==
+          sessionStorage.getItem("oans_" + (i + 1))
+        ) {
+          correctanswercount += 1;
         }
       }
+      $("#btnNext").hide();
+      DisplayProgress(correctanswercount);
     }
 
     function ValidateAnswerSelection() {
@@ -91,5 +114,43 @@ $(function() {
         return true;
       }
     }
+
+    function DisplayProgress(correctanswercount) {
+      $("#phquestionnumber").html(
+        "You answered " +
+          correctanswercount +
+          " out of " +
+          items.length +
+          " Correctly"
+      );
+    }
+
+    var t = setInterval(function() {
+      seconds -= 1;
+      if (seconds.toString().length == 1) seconds = "0" + seconds;
+      $("#lbltimer").html(
+        "Total time spend - " + Math.round(minutes) + ":" + seconds
+      );
+      if (minutes == 0 && seconds == "00") {
+        DisplayResults();
+      }
+      if (seconds == 0) {
+        seconds = 60;
+        minutes -= 1;
+      }
+    }, 1000);
+  }
+
+  function loadJSON(callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open("GET", "quiz.json", true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == 200) {
+        // .open will NOT return a value but simply returns undefined in async mode so use a callback
+        callback(xobj.responseText);
+      }
+    };
+    xobj.send(null);
   }
 });

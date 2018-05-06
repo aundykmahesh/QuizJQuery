@@ -1,40 +1,74 @@
 body {
-    font-family: Verdana,sans-serif;
-    font-size: 0.9em;
+  font-family: Verdana, sans-serif;
+  font-size: 0.9em;
 }
 
-header, footer {
-    padding: 10px;
-    color: white;
-    background-color: black;
+header,
+footer {
+  padding: 10px;
+  color: white;
+  background-color: black;
 }
 
 section {
-    margin: 5px;
-    padding: 10px;
-    background-color: lightgrey;
+  margin: 5px;
+  padding: 10px;
+  background-color: lightgrey;
 }
 
 article {
-    margin: 5px;
-    padding: 10px;
-    background-color: white;
+  margin: 5px;
+  padding: 10px;
+  background-color: white;
 }
 
 nav ul {
-    padding: 0;
+  padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 5px;
+  display: inline;
+  margin: 5px;
 }
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(22, 9, 9);
-    color: white;
-    text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(22, 9, 9);
+  color: white;
+  text-align: center;
+}
+
+.wronganswer {
+  background-color: chocolate;
+}
+
+.correctanswer {
+  background-color: greenyellow;
+}
+
+.notanswered {
+  background-color: chocolate;
+}
+
+h1display {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  section {
+    height: 96%;
+  }
+}
+@media screen and (max-width: 460px) {
+  section {
+    height: 96%;
+  }
 }
