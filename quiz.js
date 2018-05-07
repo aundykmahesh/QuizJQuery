@@ -85,10 +85,6 @@ function displayQuiz(questionNumber) {
   $("#phquestionnumber").html("Question " + (questionNumber + 1));
   $("#placeholder").html(items[questionNumber]);
   $("#hQuestionNumber").val(questionNumber);
-
-  if (items.length - 1 == questionNumber) {
-    $("#btnNext").val("Submit");
-  }
 }
 
 function displayResults() {
@@ -137,6 +133,9 @@ var t = setInterval(function() {
   );
   if (minutes == 0 && seconds == "00") {
     displayResults();
+  }
+  if (minutes == 1 && seconds == "00") {
+    $("#lbltimer").css("color", "red");
   }
   if (seconds == 0) {
     seconds = 60;
