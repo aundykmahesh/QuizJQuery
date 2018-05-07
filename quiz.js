@@ -1,6 +1,6 @@
 var items = [];
 var questionNumber;
-var minutes = 0;
+var minutes = 3;
 var seconds = 60;
 
 $(function() {
