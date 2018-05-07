@@ -78,6 +78,8 @@ function displayQuiz(questionNumber) {
 //This function displays the results 
 ///This will be called once time out event occured or user completes answering
 function displayResults() {
+  //clear the div to display the results
+  $("#placeholder").empty();
   //Stop the timer
   clearInterval(t);
   //for calculating the correct answer count
