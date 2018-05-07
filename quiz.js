@@ -75,7 +75,9 @@ function moveNext(qn) {
   if (nextQuestion == items.length) {
     displayResults();
   } else {
-    displayQuiz(nextQuestion);
+    setTimeout(function() {
+      displayQuiz(nextQuestion);
+    }, 1000);
   }
 }
 
