@@ -10,13 +10,13 @@ footer {
   background-color: black;
 }
 
-section {
+.section {
   margin: 5px;
   padding: 10px;
   background-color: lightgrey;
 }
 
-article {
+.article {
   margin: 5px;
   padding: 10px;
   background-color: white;

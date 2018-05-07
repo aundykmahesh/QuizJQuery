@@ -12,7 +12,7 @@ $(function() {
     //clear the session storage
     sessionStorage.clear();
     //get the question json. will get xhr error is used in chrome, it should be from url
-    $.getJSON("quiz.json", function(data) {
+    $.getJSON("https://raw.githubusercontent.com/aundykmahesh/htmlquiz/master/quiz.json", function(data) {
       var htmls = "";
       //loop through questions
       $.each(data, function(json, jdata) {
