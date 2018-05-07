@@ -10,38 +10,35 @@ $(function() {
   } else {
     sessionStorage.clear();
 
-    $.getJSON(
-      "https://raw.githubusercontent.com/aundykmahesh/htmlquiz/master/quiz.json",
-      function(data) {
-        var htmls = "";
-        $.each(data, function(json, jdata) {
-          htmls += "<h2>" + jdata.question + "</h2>";
-          $.each(jdata.options, function(key, value) {
-            htmls +=
-              "<div id=d_" +
-              json +
-              "_" +
-              value.sortorder +
-              ">" +
-              "<input type='radio' value='" +
-              value.value +
-              "' name='r_" +
-              json +
-              "' id=" +
-              value.sortorder +
-              "  onChange='moveNext(" +
-              json +
-              ")'>" +
-              value.value +
-              "<br></div>";
-          });
-          items.push(htmls);
-          sessionStorage.setItem("aans_" + json, jdata.answer);
-          htmls = "";
+    $.getJSON("quiz.json", function(data) {
+      var htmls = "";
+      $.each(data, function(json, jdata) {
+        htmls += "<h2>" + jdata.question + "</h2>";
+        $.each(jdata.options, function(key, value) {
+          htmls +=
+            "<div id=d_" +
+            json +
+            "_" +
+            value.sortorder +
+            ">" +
+            "<input type='radio' value='" +
+            value.value +
+            "' name='r_" +
+            json +
+            "' id=" +
+            value.sortorder +
+            "  onChange='moveNext(" +
+            json +
+            ")'>" +
+            value.value +
+            "<br></div>";
         });
-        displayQuiz(0);
-      }
-    );
+        items.push(htmls);
+        sessionStorage.setItem("aans_" + json, jdata.answer);
+        htmls = "";
+      });
+      displayQuiz(0);
+    });
     $("#btnNext").click(function() {});
 
     function validateAnswerSelection() {

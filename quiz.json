@@ -10,13 +10,96 @@
     ]
   },
   "2": {
+    "question": "What is the scientific name of a butterfly?",
+    "answer": 3,
+    "options": [
+      { "value": "Apis", "sortorder": "1" },
+      { "value": "Coleoptera", "sortorder": "2" },
+      { "value": "Formicidae", "sortorder": "3" },
+      { "value": "Rhopalocera", "sortorder": "4" }
+    ]
+  },
+  "3": {
     "question": "What is the Capital city of India?",
     "answer": 1,
     "options": [
       { "value": "Delhi", "sortorder": "1" },
       { "value": "Mumbai", "sortorder": "2" },
-      { "value": "Kolkatta", "sortorder": "3" },
-      { "value": "Chennai", "sortorder": "4" }
+      { "value": "Chennai", "sortorder": "3" },
+      { "value": "Kolkatta", "sortorder": "4" }
+    ]
+  },
+  "4": {
+    "question": "How far is the moon from Earth?",
+    "answer": 2,
+    "options": [
+      { "value": "7,918 miles (12,742 km)", "sortorder": "1" },
+      { "value": "86,881 miles (139,822 km)", "sortorder": "2" },
+      { "value": "238,400 miles (384,400 km)", "sortorder": "3" },
+      { "value": "35,980,000 miles (57,910,000 km)", "sortorder": "4" }
+    ]
+  },
+  "5": {
+    "question": "What is 65 times 52?",
+    "answer": 2,
+    "options": [
+      { "value": "117", "sortorder": "1" },
+      { "value": "3120", "sortorder": "2" },
+      { "value": "3380", "sortorder": "3" },
+      { "value": "3520", "sortorder": "4" }
+    ]
+  },
+  "6": {
+    "question":
+      "During a sale, all shirts are being sold at 65% of their original price. If Dan bought a shirt for $130, how much did he save?",
+    "answer": 1,
+    "options": [
+      { "value": "170", "sortorder": "1" },
+      { "value": "280", "sortorder": "2" },
+      { "value": "380", "sortorder": "3" },
+      { "value": "150", "sortorder": "4" }
+    ]
+  },
+  "7": {
+    "question":
+      "What is the area of a playground measuring 3 km long and 300m wide? (Answers in hectares)",
+    "answer": 1,
+    "options": [
+      { "value": "0.09h", "sortorder": "1" },
+      { "value": "90h", "sortorder": "2" },
+      { "value": "10h", "sortorder": "3" },
+      { "value": "2h", "sortorder": "4" }
+    ]
+  },
+  "8": {
+    "question": "What is 61% in decimals",
+    "answer": 4,
+    "options": [
+      { "value": "6.1", "sortorder": "1" },
+      { "value": "0.061", "sortorder": "2" },
+      { "value": "61", "sortorder": "3" },
+      { "value": "0.61", "sortorder": "4" }
+    ]
+  },
+  "9": {
+    "question":
+      "A sow gave birth to 13 piglets, of which 3 are albino. Find the ratio of the number of albino pigs to the total number of pigs",
+    "answer": 3,
+    "options": [
+      { "value": "14", "sortorder": "1" },
+      { "value": "26", "sortorder": "2" },
+      { "value": "13", "sortorder": "3" },
+      { "value": "10", "sortorder": "4" }
+    ]
+  },
+  "10": {
+    "question": "Express 250 m as a ratio of 2 km in its simplest form",
+    "answer": 2,
+    "options": [
+      { "value": "250 : 2", "sortorder": "1" },
+      { "value": "250 : 2000", "sortorder": "2" },
+      { "value": "8 : 1", "sortorder": "3" },
+      { "value": "1 : 8", "sortorder": "4" }
     ]
   }
 }

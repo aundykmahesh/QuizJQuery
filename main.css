@@ -64,11 +64,11 @@ h1display {
 
 @media screen and (max-width: 800px) {
   section {
-    height: 96%;
+    height: 85%;
   }
 }
 @media screen and (max-width: 460px) {
   section {
-    height: 96%;
+    height: 85%;
   }
 }
